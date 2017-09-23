@@ -12,6 +12,11 @@ class RecordsController < ApplicationController
     end
   end
 
+  def destroy
+    Record.find(params[:id]).destroy
+    head :no_content
+  end
+
   private
 
   def record_params
