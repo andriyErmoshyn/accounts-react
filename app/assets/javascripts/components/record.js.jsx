@@ -1,4 +1,4 @@
-class Record extends React.Component{
+class Record extends BaseComponent{
   constructor(props){
     super(props);
     this.state = {
@@ -7,12 +7,8 @@ class Record extends React.Component{
                    titleEdit: this.props.record.title,
                    amountEdit: this.props.record.amount
                  };
-    this.handleDeleteRecord = this.handleDeleteRecord.bind(this);
-    this.recordRow = this.recordRow.bind(this);
-    this.recordForm = this.recordForm.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this._bind('handleDeleteRecord', 'recordRow', 'recordForm',
+               'handleToggle', 'handleChange', 'handleEdit')
   }
   handleChange(e){
     let name = e.target.name;

@@ -1,13 +1,8 @@
-class Records extends React.Component{
+class Records extends BaseComponent{
   constructor(props){
     super(props);
     this.state = { records: props.records };
-    this.addRecord = this.addRecord.bind(this);
-    this.credits = this.credits.bind(this);
-    this.debits = this.debits.bind(this);
-    this.balance = this.balance.bind(this);
-    this.deleteRecord = this.deleteRecord.bind(this);
-    this.handleEditRecord = this.handleEditRecord.bind(this);
+    this._bind('addRecord', 'credits', 'debits', 'balance', 'deleteRecord', 'handleEditRecord');
   }
   addRecord(record){
     return(

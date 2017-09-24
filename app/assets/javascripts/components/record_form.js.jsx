@@ -1,11 +1,8 @@
-class RecordForm extends React.Component{
+class RecordForm extends BaseComponent{
   constructor(props){
     super(props);
     this.state = { date: '', amount: '', title: '' };
-    this.handleChange = this.handleChange.bind(this);
-    this.valid = this.valid.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleNewRecord = this.handleNewRecord.bind(this);
+    this._bind('handleChange', 'valid', 'handleSubmit', 'handleNewRecord')
   }
   handleChange (e){
     let name = e.target.name;
