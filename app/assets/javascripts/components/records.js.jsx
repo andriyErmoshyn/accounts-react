@@ -7,10 +7,17 @@ class Records extends React.Component{
     this.debits = this.debits.bind(this);
     this.balance = this.balance.bind(this);
     this.deleteRecord = this.deleteRecord.bind(this);
+    this.handleEditRecord = this.handleEditRecord.bind(this);
   }
   addRecord(record){
     return(
       this.setState(prevState => { records: prevState.records.push(record)})
+    )
+  }
+  handleEditRecord(record, data){
+    let index = this.state.records.indexOf(record);
+    return(
+      this.setState(prevState => { records: prevState.records.splice(index, 1, data) })
     )
   }
   deleteRecord(record){
@@ -60,7 +67,10 @@ class Records extends React.Component{
             </tr>
           </thead>
           <tbody>
-            { this.props.records.map(record => <Record key={record.id} record={record} deleteRecord={this.deleteRecord} />) }
+            { this.props.records.map(record => <Record key={record.id}
+                                                       record={record}
+                                                       deleteRecord={this.deleteRecord}
+                                                       handleEditRecord={this.handleEditRecord} />) }
           </tbody>
         </table>
       </div>
